@@ -1,0 +1,1267 @@
+/* ========================================
+   STATSKET 🏀
+   DISEÑO PROFESIONAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.82)
+        ),
+        url("cancha.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+/* ========================================
+   PANTALLAS
+======================================== */
+
+.pantalla {
+
+    min-height: 100vh;
+
+    padding:
+        30px 20px 60px;
+
+}
+
+
+.contenido {
+
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+}
+
+
+/* ========================================
+   PERFIL
+======================================== */
+
+#pantallaPerfil {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.perfil {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(10, 10, 10, 0.88);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.7);
+
+}
+
+
+.logo-grande {
+
+    width: 90px;
+
+    height: 90px;
+
+    margin:
+        0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 152, 0, 0.15);
+
+    font-size: 50px;
+
+}
+
+
+.marca {
+
+    margin: 0;
+
+    color: orange;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+}
+
+
+.perfil h1 {
+
+    margin:
+        15px 0;
+
+    font-size: 42px;
+
+    line-height: 1.05;
+
+}
+
+
+.subtitulo {
+
+    color: #aaa;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ========================================
+   TÍTULOS
+======================================== */
+
+h1 {
+
+    text-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.8);
+
+}
+
+
+.descripcion {
+
+    color: #aaa;
+
+    margin-top: -20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ========================================
+   INPUTS
+======================================== */
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin:
+        7px 0;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: orange;
+
+}
+
+
+select option {
+
+    background: #222;
+
+    color: white;
+
+}
+
+
+input::placeholder {
+
+    color: #999;
+
+}
+
+
+/* ========================================
+   BOTONES
+======================================== */
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+button:active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+/* BOTÓN PRINCIPAL */
+
+.boton-principal {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 15px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ff6d00
+        );
+
+    font-size: 17px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 152, 0, 0.25);
+
+}
+
+
+/* BOTÓN SECUNDARIO */
+
+.boton-secundario {
+
+    padding: 14px 22px;
+
+    margin-top: 25px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* VOLVER */
+
+.boton-volver {
+
+    padding:
+        12px 18px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+}
+
+
+/* EDITAR */
+
+.boton-editar {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    font-size: 20px;
+
+}
+
+
+/* ========================================
+   BARRA SUPERIOR
+======================================== */
+
+.barra-superior {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+}
+
+
+.barra-superior h1 {
+
+    margin:
+        5px 0;
+
+    font-size: 38px;
+
+}
+
+
+/* ========================================
+   TARJETA JUGADOR
+======================================== */
+
+.tarjeta-jugador {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 18px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+}
+
+
+.avatar-jugador {
+
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 152, 0, 0.15);
+
+    font-size: 38px;
+
+}
+
+
+.datos-jugador h2 {
+
+    margin: 0 0 7px;
+
+}
+
+
+.datos-jugador p {
+
+    margin: 0;
+
+    color: #aaa;
+
+}
+
+
+/* ========================================
+   NIVEL
+======================================== */
+
+.tarjeta-nivel {
+
+    padding: 22px;
+
+    margin:
+        18px 0;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.nivel-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 13px;
+
+}
+
+
+.nivel-info span {
+
+    color: #999;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.nivel-info strong {
+
+    color: orange;
+
+}
+
+
+.nivel-barra {
+
+    width: 100%;
+
+    height: 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+}
+
+
+.nivel-progreso {
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9800,
+            #ffc107
+        );
+
+    transition:
+        width 0.5s ease;
+
+}
+
+
+.nivel-grande {
+
+    display: block;
+
+    margin-top: 15px;
+
+    color: orange;
+
+    font-size: 25px;
+
+}
+
+
+/* ========================================
+   TÍTULO SECCIÓN
+======================================== */
+
+.titulo-seccion {
+
+    margin:
+        30px 0 15px;
+
+    font-size: 21px;
+
+}
+
+
+/* ========================================
+   TARJETAS ESTADÍSTICAS
+======================================== */
+
+.tarjetas-estadisticas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.mini-card {
+
+    padding: 20px 10px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.mini-card span {
+
+    display: block;
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.mini-card strong {
+
+    display: block;
+
+    font-size: 27px;
+
+}
+
+
+.mini-card small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #999;
+
+}
+
+
+/* ========================================
+   MENÚ PROFESIONAL
+======================================== */
+
+.menu-profesional {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.menu-card {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    text-align: left;
+
+    border-radius: 18px;
+
+    background:
+        rgba(10, 10, 10, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.menu-card:hover {
+
+    border-color:
+        rgba(255, 152, 0, 0.5);
+
+    transform:
+        translateX(5px);
+
+}
+
+
+.icono-menu {
+
+    width: 52px;
+
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 152, 0, 0.12);
+
+    font-size: 25px;
+
+}
+
+
+.texto-menu {
+
+    flex: 1;
+
+}
+
+
+.texto-menu strong {
+
+    display: block;
+
+    font-size: 17px;
+
+}
+
+
+.texto-menu small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #999;
+
+}
+
+
+.menu-card b {
+
+    color: #777;
+
+    font-size: 30px;
+
+}
+
+
+/* ========================================
+   ENTRENAMIENTO
+======================================== */
+
+.botones-tiros {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.botones-tiros button {
+
+    padding: 22px;
+
+    text-align: left;
+
+    border-radius: 18px;
+
+    background:
+        rgba(10, 10, 10, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.botones-tiros button:hover {
+
+    border-color: orange;
+
+}
+
+
+.botones-tiros span {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+
+}
+
+
+.botones-tiros strong {
+
+    display: block;
+
+    font-size: 16px;
+
+}
+
+
+.botones-tiros small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #999;
+
+}
+
+
+/* ========================================
+   ESTADÍSTICAS
+======================================== */
+
+.estadistica-box {
+
+    padding: 25px;
+
+    margin:
+        25px 0;
+
+    border-radius: 22px;
+
+    background:
+        rgba(10, 10, 10, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.estadisticas-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.estadisticas-grid > div {
+
+    padding: 15px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+.estadisticas-grid span {
+
+    display: block;
+
+    font-size: 25px;
+
+}
+
+
+.estadisticas-grid strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 28px;
+
+}
+
+
+.estadisticas-grid small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #999;
+
+}
+
+
+/* ========================================
+   PROBABILIDAD
+======================================== */
+
+.probabilidad {
+
+    padding: 30px;
+
+    margin:
+        25px 0;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        rgba(10, 10, 10, 0.86);
+
+}
+
+
+#probabilidad {
+
+    margin: 15px 0;
+
+    color: orange;
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+}
+
+
+#mensaje {
+
+    color: #aaa;
+
+}
+
+
+/* ========================================
+   TIPO DE ACIERTO
+======================================== */
+
+.tipo-acierto {
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+}
+
+
+.tipo-acierto p {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    margin: 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.tipo-acierto strong {
+
+    color: orange;
+
+}
+
+
+/* ========================================
+   HISTORIAL
+======================================== */
+
+.form-partido {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.form-partido input {
+
+    flex: 1;
+
+}
+
+
+.form-partido .boton-principal {
+
+    width: auto;
+
+    margin: 7px 0;
+
+    white-space: nowrap;
+
+}
+
+
+.partido {
+
+    padding: 22px;
+
+    margin:
+        15px 0;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10, 10, 10, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.partido h3 {
+
+    margin-top: 0;
+
+}
+
+
+.partido p {
+
+    color: #aaa;
+
+}
+
+
+.partido button {
+
+    padding:
+        10px 15px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* ========================================
+   PROGRESO
+======================================== */
+
+.progreso-contenedor {
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+}
+
+
+.progreso-partido {
+
+    padding: 20px;
+
+    margin:
+        15px 0;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+.progreso-partido h3 {
+
+    margin-top: 0;
+
+}
+
+
+.progreso-partido p {
+
+    color: #aaa;
+
+}
+
+
+.dato {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 15px;
+
+}
+
+
+.barra-fondo {
+
+    width: 100%;
+
+    height: 12px;
+
+    margin-top: 7px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+}
+
+
+.barra-puntos {
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: orange;
+
+}
+
+
+.barra-acierto {
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: limegreen;
+
+}
+
+
+.progreso-vacio {
+
+    padding: 40px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10, 10, 10, 0.85);
+
+}
+
+
+.progreso-vacio p {
+
+    color: #999;
+
+}
+
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 700px) {
+
+    .perfil {
+
+        padding: 35px 22px;
+
+    }
+
+    .perfil h1 {
+
+        font-size: 34px;
+
+    }
+
+    .barra-superior h1 {
+
+        font-size: 30px;
+
+    }
+
+    .tarjetas-estadisticas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .estadisticas-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .botones-tiros {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .form-partido {
+
+        flex-direction: column;
+
+    }
+
+    .form-partido .boton-principal {
+
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .pantalla {
+
+        padding:
+            20px 12px 50px;
+
+    }
+
+    .tarjeta-jugador {
+
+        padding: 18px;
+
+    }
+
+    .avatar-jugador {
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 30px;
+
+    }
+
+}
