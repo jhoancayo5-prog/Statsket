@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Statsket 🏀</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ff8c00">
+
+<script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function() {
+
+            navigator.serviceWorker.register("sw.js")
+                .then(function() {
+
+                    console.log("Statsket instalada correctamente");
+
+                })
+                .catch(function(error) {
+
+                    console.log("Error:", error);
+
+                });
+
+        });
+
+    }
+</script>
+<body>
+
+    <!-- ================================
+         PERFIL
+    ================================= -->
+
+    <section id="pantallaPerfil" class="pantalla">
+
+        <div class="perfil">
+
+            <div class="logo-grande">
+                🏀
+            </div>
+
+            <p class="marca">
+                STATSKET
+            </p>
+
+            <h1>
+                Tu básquet.<br>
+                Tus estadísticas.
+            </h1>
+
+            <p class="subtitulo">
+                Registra, analiza y mejora tu rendimiento.
+            </p>
+
+            <input
+                type="text"
+                id="nombreJugador"
+                placeholder="Escribe tu nombre"
+            >
+
+            <select id="posicionJugador">
+
+                <option value="">
+                    Selecciona tu posición
+                </option>
+
+                <option value="Base">
+                    🏀 Base
+                </option>
+
+                <option value="Escolta">
+                    🎯 Escolta
+                </option>
+
+                <option value="Alero">
+                    🔥 Alero
+                </option>
+
+                <option value="Ala-pívot">
+                    💪 Ala-pívot
+                </option>
+
+                <option value="Pívot">
+                    🛡️ Pívot
+                </option>
+
+            </select>
+
+            <button
+                class="boton-principal"
+                onclick="continuarPerfil()"
+            >
+                Comenzar 🏀
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         INICIO
+    ================================= -->
+
+    <section
+        id="pantallaInicio"
+        class="pantalla"
+        style="display:none;"
+    >
+
+        <div class="contenido">
+
+            <div class="barra-superior">
+
+                <div>
+
+                    <span class="marca">
+                        STATSKET
+                    </span>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+                <button
+                    class="boton-editar"
+                    onclick="editarPerfil()"
+                >
+                    ✏️
+                </button>
+
+            </div>
+
+
+            <!-- JUGADOR -->
+
+            <div class="tarjeta-jugador">
+
+                <div class="avatar-jugador">
+                    🏀
+                </div>
+
+                <div class="datos-jugador">
+
+                    <h2 id="saludoJugador">
+                        ¡Hola, jugador!
+                    </h2>
+
+                    <p id="posicionInicio">
+                        Posición: -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NIVEL -->
+
+            <div class="tarjeta-nivel">
+
+                <div class="nivel-info">
+
+                    <span>
+                        NIVEL DEL JUGADOR
+                    </span>
+
+                    <strong id="nivelInicio">
+                        ⭐ Principiante
+                    </strong>
+
+                </div>
+
+                <div class="nivel-barra">
+
+                    <div
+                        id="barraNivel"
+                        class="nivel-progreso"
+                        style="width:10%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESUMEN -->
+
+            <h2 class="titulo-seccion">
+                📊 Resumen
+            </h2>
+
+            <div class="tarjetas-estadisticas">
+
+                <div class="mini-card">
+
+                    <span>🎯</span>
+
+                    <strong id="inicioTiros">
+                        0
+                    </strong>
+
+                    <small>
+                        Tiros
+                    </small>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span>✅</span>
+
+                    <strong id="inicioAnotados">
+                        0
+                    </strong>
+
+                    <small>
+                        Anotados
+                    </small>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span>⭐</span>
+
+                    <strong id="inicioPuntos">
+                        0
+                    </strong>
+
+                    <small>
+                        Puntos
+                    </small>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span>📈</span>
+
+                    <strong id="inicioPorcentaje">
+                        0%
+                    </strong>
+
+                    <small>
+                        Acierto
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENÚ -->
+
+            <h2 class="titulo-seccion">
+                🏀 Menú
+            </h2>
+
+            <div class="menu-profesional">
+
+                <button
+                    class="menu-card"
+                    onclick="mostrarPantalla('pantallaEntrenamiento')"
+                >
+
+                    <span class="icono-menu">
+                        🏀
+                    </span>
+
+                    <span class="texto-menu">
+
+                        <strong>
+                            Entrenamiento
+                        </strong>
+
+                        <small>
+                            Registra tus tiros
+                        </small>
+
+                    </span>
+
+                    <b>›</b>
+
+                </button>
+
+
+                <button
+                    class="menu-card"
+                    onclick="mostrarPantalla('pantallaEstadisticas')"
+                >
+
+                    <span class="icono-menu">
+                        📊
+                    </span>
+
+                    <span class="texto-menu">
+
+                        <strong>
+                            Estadísticas
+                        </strong>
+
+                        <small>
+                            Analiza tu rendimiento
+                        </small>
+
+                    </span>
+
+                    <b>›</b>
+
+                </button>
+
+
+                <button
+                    class="menu-card"
+                    onclick="mostrarPantalla('pantallaHistorial')"
+                >
+
+                    <span class="icono-menu">
+                        📋
+                    </span>
+
+                    <span class="texto-menu">
+
+                        <strong>
+                            Historial
+                        </strong>
+
+                        <small>
+                            Revisa tus partidos
+                        </small>
+
+                    </span>
+
+                    <b>›</b>
+
+                </button>
+
+
+                <button
+                    class="menu-card"
+                    onclick="mostrarPantalla('pantallaProgreso')"
+                >
+
+                    <span class="icono-menu">
+                        📈
+                    </span>
+
+                    <span class="texto-menu">
+
+                        <strong>
+                            Mi progreso
+                        </strong>
+
+                        <small>
+                            Observa tu evolución
+                        </small>
+
+                    </span>
+
+                    <b>›</b>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         ENTRENAMIENTO
+    ================================= -->
+
+    <section
+        id="pantallaEntrenamiento"
+        class="pantalla"
+        style="display:none;"
+    >
+
+        <div class="contenido">
+
+            <button
+                class="boton-volver"
+                onclick="mostrarPantalla('pantallaInicio')"
+            >
+                ← Volver
+            </button>
+
+            <h1>
+                🏀 Entrenamiento
+            </h1>
+
+            <p class="descripcion">
+                Registra cada lanzamiento de tu sesión.
+            </p>
+
+
+            <div class="botones-tiros">
+
+                <button
+                    onclick="tiroTipo('dos', true, 2)"
+                >
+                    <span>🏀</span>
+                    <strong>Canasta de 2</strong>
+                    <small>+2 puntos</small>
+                </button>
+
+
+                <button
+                    onclick="tiroTipo('dos', false, 0)"
+                >
+                    <span>❌</span>
+                    <strong>Fallo de 2</strong>
+                    <small>Intento fallido</small>
+                </button>
+
+
+                <button
+                    onclick="tiroTipo('tres', true, 3)"
+                >
+                    <span>🔥</span>
+                    <strong>Canasta de 3</strong>
+                    <small>+3 puntos</small>
+                </button>
+
+
+                <button
+                    onclick="tiroTipo('tres', false, 0)"
+                >
+                    <span>❌</span>
+                    <strong>Fallo de 3</strong>
+                    <small>Intento fallido</small>
+                </button>
+
+
+                <button
+                    onclick="tiroTipo('libre', true, 1)"
+                >
+                    <span>🎯</span>
+                    <strong>Libre anotado</strong>
+                    <small>+1 punto</small>
+                </button>
+
+
+                <button
+                    onclick="tiroTipo('libre', false, 0)"
+                >
+                    <span>❌</span>
+                    <strong>Libre fallado</strong>
+                    <small>Intento fallido</small>
+                </button>
+
+            </div>
+
+
+            <div class="estadistica-box">
+
+                <h2>
+                    📊 Sesión actual
+                </h2>
+
+                <div class="estadisticas-grid">
+
+                    <div>
+                        <span>🎯</span>
+                        <strong id="tiros">0</strong>
+                        <small>Tiros</small>
+                    </div>
+
+                    <div>
+                        <span>✅</span>
+                        <strong id="anotados">0</strong>
+                        <small>Anotados</small>
+                    </div>
+
+                    <div>
+                        <span>⭐</span>
+                        <strong id="puntos">0</strong>
+                        <small>Puntos</small>
+                    </div>
+
+                    <div>
+                        <span>📈</span>
+                        <strong id="porcentaje">0%</strong>
+                        <small>Acierto</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="probabilidad">
+
+                <h2>
+                    🎯 Probabilidad de encestar
+                </h2>
+
+                <div id="probabilidad">
+                    0%
+                </div>
+
+                <p id="mensaje">
+                    Registra algunos tiros.
+                </p>
+
+            </div>
+
+
+            <div class="tipo-acierto">
+
+                <h2>
+                    📊 Acierto por tipo
+                </h2>
+
+                <p>
+                    🏀 Tiros de 2
+                    <strong id="porcentajeDos">0%</strong>
+                </p>
+
+                <p>
+                    🔥 Tiros de 3
+                    <strong id="porcentajeTres">0%</strong>
+                </p>
+
+                <p>
+                    🎯 Tiros libres
+                    <strong id="porcentajeLibre">0%</strong>
+                </p>
+
+            </div>
+
+
+            <button
+                class="boton-secundario"
+                onclick="reiniciar()"
+            >
+                🔄 Reiniciar sesión
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         ESTADÍSTICAS
+    ================================= -->
+
+    <section
+        id="pantallaEstadisticas"
+        class="pantalla"
+        style="display:none;"
+    >
+
+        <div class="contenido">
+
+            <button
+                class="boton-volver"
+                onclick="mostrarPantalla('pantallaInicio')"
+            >
+                ← Volver
+            </button>
+
+            <h1>
+                📊 Estadísticas
+            </h1>
+
+            <p class="descripcion">
+                Tu rendimiento general.
+            </p>
+
+
+            <div class="estadistica-box">
+
+                <div class="estadisticas-grid">
+
+                    <div>
+                        <span>🎯</span>
+                        <strong id="statsTiros">0</strong>
+                        <small>Tiros</small>
+                    </div>
+
+                    <div>
+                        <span>✅</span>
+                        <strong id="statsAnotados">0</strong>
+                        <small>Anotados</small>
+                    </div>
+
+                    <div>
+                        <span>⭐</span>
+                        <strong id="statsPuntos">0</strong>
+                        <small>Puntos</small>
+                    </div>
+
+                    <div>
+                        <span>📈</span>
+                        <strong id="statsPorcentaje">0%</strong>
+                        <small>Acierto</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta-nivel">
+
+                <h2>
+                    🏆 Nivel
+                </h2>
+
+                <strong
+                    id="nivelJugador"
+                    class="nivel-grande"
+                >
+                    ⭐ Principiante
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         HISTORIAL
+    ================================= -->
+
+    <section
+        id="pantallaHistorial"
+        class="pantalla"
+        style="display:none;"
+    >
+
+        <div class="contenido">
+
+            <button
+                class="boton-volver"
+                onclick="mostrarPantalla('pantallaInicio')"
+            >
+                ← Volver
+            </button>
+
+            <h1>
+                📋 Historial
+            </h1>
+
+            <p class="descripcion">
+                Guarda tus sesiones y partidos.
+            </p>
+
+
+            <div class="form-partido">
+
+                <input
+                    type="text"
+                    id="nombrePartido"
+                    placeholder="Nombre del partido"
+                >
+
+                <button
+                    class="boton-principal"
+                    onclick="guardarPartido()"
+                >
+                    💾 Guardar partido
+                </button>
+
+            </div>
+
+
+            <div id="historial"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         PROGRESO
+    ================================= -->
+
+    <section
+        id="pantallaProgreso"
+        class="pantalla"
+        style="display:none;"
+    >
+
+        <div class="contenido">
+
+            <button
+                class="boton-volver"
+                onclick="mostrarPantalla('pantallaInicio')"
+            >
+                ← Volver
+            </button>
+
+            <h1>
+                📈 Mi progreso
+            </h1>
+
+            <p class="descripcion">
+                Mira cómo evolucionas con cada partido.
+            </p>
+
+            <div id="progreso"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
